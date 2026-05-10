@@ -26,7 +26,7 @@ class EventRepositoryTest {
     private EventRepository eventRepository;
 
     @Test
-    @DisplayName("Should get User successfully from DB")
+    @DisplayName("Should get Event successfully from DB")
     void findUpComingEventsCase1() {
 
         EventRequestDTO data = new EventRequestDTO(3, 1, "25/05/2026", "Teste Gabriel", "Validation teste J-UNIT");
@@ -36,6 +36,15 @@ class EventRepositoryTest {
         List<Event> result = this.eventRepository.findUpComingEvents(date);
         assertThat(result).isNotEmpty();
     }
+
+    @Test
+    @DisplayName("Should not get Event from DB when Event not exists")
+    void findUpComingEventsCase2() {
+        LocalDateTime date = LocalDateTime.of(2026,5,3,0,0);
+        List<Event> result = this.eventRepository.findUpComingEvents(date);
+        assertThat(result.isEmpty()).isTrue();
+    }
+
 
     @Test
     void findById() {
