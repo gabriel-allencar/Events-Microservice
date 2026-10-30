@@ -10,6 +10,7 @@ import com.alencar.events_microservice.repositories.EventRepository;
 import com.alencar.events_microservice.repositories.SubscriptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -43,6 +44,7 @@ import java.util.List;
             return event.getRegisteredParticipants() >= event.getMaxParticipants();
         }
 
+        @Transactional
         public void registerParticipant(String eventId, String participantEmail) {
             Event event = eventRepository.findById(eventId).orElseThrow(EventNotFoundException::new);
 
