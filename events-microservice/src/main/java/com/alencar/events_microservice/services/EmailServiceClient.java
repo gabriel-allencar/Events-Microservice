@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-@FeignClient(name ="email-service-aws", url = "localhost:8080/api/email/send")
+@FeignClient(name ="email-service-aws", url = "${email-service.url:http://localhost:8081}")
 public interface EmailServiceClient {
-    @PostMapping("/send")
+    @PostMapping("/api/email/send")
     void sendEmail(@RequestBody EmailRequestDTO emailRequest);
 }
 
