@@ -42,7 +42,7 @@ sequenceDiagram
 | Método | Rota | Descrição |
 | --- | --- | --- |
 | GET | `/events` | Lista todos os eventos |
-| GET | `/events/upcomig` | Lista os próximos eventos |
+| GET | `/events/upcoming` | Lista os próximos eventos |
 | POST | `/events` | Cria um evento |
 | POST | `/events/{eventId}/register` | Inscreve um participante |
 
@@ -76,7 +76,7 @@ cd Events-Microservice/events-microservice
 ./mvnw spring-boot:run
 ```
 
-A inscrição depende de um serviço de e-mail externo, que não faz parte deste repositório. O endereço está em `EmailServiceClient`.
+A inscrição depende de um serviço de e-mail externo, que não faz parte deste repositório. Configure o endereço na propriedade `email-service.url` (padrão: `http://localhost:8081`).
 
 Com a aplicação rodando na porta padrão:
 
