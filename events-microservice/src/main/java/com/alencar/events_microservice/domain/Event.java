@@ -26,6 +26,7 @@ public class Event {
 
     public Event (EventRequestDTO eventRequestDTO){
     this.date =  eventRequestDTO.date();
+    this.title = eventRequestDTO.title();
     this.description = eventRequestDTO.description();
     this.maxParticipants = eventRequestDTO.maxParticipants();
     this.registeredParticipants = eventRequestDTO.registeredParticipants();
