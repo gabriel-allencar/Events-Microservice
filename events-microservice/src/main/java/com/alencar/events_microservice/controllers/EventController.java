@@ -25,7 +25,7 @@ public class EventController {
         return eventService.getAllEvents();
     }
 
-    @GetMapping("/upcomig")
+    @GetMapping("/upcoming")
     public List<Event> getUpcomigEvents(){
         return eventService.getUpcomingEvents();
     }
